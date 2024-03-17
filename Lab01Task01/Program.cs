@@ -2,7 +2,6 @@
 
 using System.Reflection;
 using Lab01Task01;
-using Lab01Task01.Solution;
 using Weight = Lab01Task01.Weight;
 using WeightUnits = Lab01Task01.WeightUnits;
 
@@ -381,6 +380,7 @@ test.AddCase(
             weight.GetType().GetProperty("Value")?.SetValue(weight, 1.3);
             weight.GetType().GetProperty("Unit")?.SetValue(weight, Enum.Parse<WeightUnits>("LB"));
             Object? other = Activator.CreateInstance(typeof(Weight), true);
+            Console.WriteLine("TEEEST");
             other?.GetType().GetProperty("Value")?.SetValue(other, 589.670081);
             other?.GetType().GetProperty("Unit")?.SetValue(other, Enum.Parse<WeightUnits>("G"));
             var methodInfo = wType.GetMethod("Equals", BindingFlags.Public | BindingFlags.Instance, new[] {typeof(Weight)});
